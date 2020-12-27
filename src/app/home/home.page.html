@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Ionic SeriesApp</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content fullscreen>
+  <ion-card
+    *ngFor="let serie of series"
+    [routerLink]="serie.id"
+    class="serie-card"
+  >
+    <div class="df">
+      <img
+        [src]="serie.image_thumbnail_path"
+      />
+      <div class="p5">
+        <h4>{{ serie.name }}</h4>
+        <h5>{{ serie.network }}</h5>
+        <span>{{ serie.status }}</span>
+      </div>
+    </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </ion-card>
 </ion-content>
