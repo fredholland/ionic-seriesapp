@@ -1,9 +1,25 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title><b>Details</b></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
+
+  <div *ngIf="serieDetails">
+
+    <img [src]="serieDetails?.image_path">
+
+    <div class="p10">
+      <h4>{{ serieDetails.name }}</h4>
+      <h5>{{ serieDetails.network }}</h5>
+      <span>{{ serieDetails.status }}</span>
+      <p>{{ serieDetails.description }}</p>
+    </div>
+
+  </div>
 
 </ion-content>

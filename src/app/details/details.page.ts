@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SeriesService } from './../services/series.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailsPage implements OnInit {
 
-  constructor() { }
+  serieDetails: any;
+
+  constructor(
+    private seriesService: SeriesService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+
+    let index = this.route.snapshot.paramMap.get('index');
+
+    this.seriesService
+      .getSerie(index)
+      .subscribe(res => {
+        this.serieDetails = res['tvShow'];
+      })
+
   }
 
 }
